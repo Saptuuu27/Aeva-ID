@@ -1,0 +1,10 @@
+{
+  "name": "Aeva",
+  "description": "Aeva - Healthcare Aeva ID, medication compliance, unified offline emergency health records, caregiver monitoring and hospital registry platform.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,14 @@
+{
+	"appId": "com.aeva.health",
+	"appName": "Aeva Health",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https",
+		"cleartext": true
+	},
+	"android": {
+		"allowMixedContent": true,
+		"captureInput": true,
+		"webContentsDebuggingEnabled": true
+	}
+}

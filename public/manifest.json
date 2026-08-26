@@ -1,0 +1,21 @@
+{
+  "name": "Aeva Emergency Healthcare",
+  "short_name": "Aeva",
+  "description": "Unified Medical ID, Medication Compliance, and Offline Emergency Health Records",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#002D62",
+  "theme_color": "#002D62",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
