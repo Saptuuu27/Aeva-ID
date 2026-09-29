@@ -49,3 +49,38 @@
   animation: scan-laser 2.4s ease-in-out infinite;
 }
 
+/* Print Styles for SIH Evaluator PDF Helpbook */
+@media print {
+  @page {
+    margin: 12mm 15mm 12mm 15mm;
+    size: A4 portrait;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+  }
+
+  /* Hide app navigation and floating alerts during PDF printing */
+  header, nav, .bottom-nav, footer, .realtime-alert-container, .scanner-laser {
+    display: none !important;
+  }
+
+  /* Force modal backdrop and card to expand smoothly without scrollbars */
+  .fixed {
+    position: static !important;
+  }
+
+  .overflow-y-auto, .overflow-hidden {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* Clean page breaks */
+  .print-page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+}
+

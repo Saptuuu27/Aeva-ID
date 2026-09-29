@@ -11,8 +11,10 @@ import {
   Ambulance,
   UserCheck,
   LogOut,
+  BookOpen,
 } from 'lucide-react';
 import { EmergencySOSModal } from './EmergencySOSModal';
+import { SIHJudgeHelpbookModal } from './SIHJudgeHelpbookModal';
 
 export const Navbar: React.FC = () => {
   const {
@@ -32,6 +34,7 @@ export const Navbar: React.FC = () => {
 
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSosModal, setShowSosModal] = useState(false);
+  const [showHelpbookModal, setShowHelpbookModal] = useState(false);
 
   const roleMeta: Record<UserRole, { label: string; icon: any; badgeColor: string }> = {
     patient: {
@@ -89,6 +92,16 @@ export const Navbar: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* SIH Judge Manual / Helpbook Fast-Access */}
+          <button
+            onClick={() => setShowHelpbookModal(true)}
+            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-2.5 py-0.5 rounded-md text-[10px] sm:text-[11px] flex items-center gap-1 transition-colors cursor-pointer shadow-xs"
+            title="Open SIH Evaluator Manual & Workflow Flowcharts"
+          >
+            <BookOpen className="w-3 h-3 text-slate-900" />
+            <span>SIH Helpbook</span>
+          </button>
+
           {/* Offline / Local Storage Status Badge */}
           <div
             className={`px-2 py-0.5 rounded-md font-bold text-[10px] sm:text-[11px] flex items-center gap-1.5 transition-all ${
@@ -405,6 +418,9 @@ export const Navbar: React.FC = () => {
 
       {/* Emergency SOS Modal */}
       <EmergencySOSModal isOpen={showSosModal} onClose={() => setShowSosModal(false)} />
+
+      {/* SIH Judge Helpbook & System Manual Modal */}
+      <SIHJudgeHelpbookModal isOpen={showHelpbookModal} onClose={() => setShowHelpbookModal(false)} />
     </header>
   );
 };

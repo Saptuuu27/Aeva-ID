@@ -19,7 +19,10 @@ import {
   FileCheck2,
   Fingerprint,
   ChevronDown,
+  BookOpen,
+  Award,
 } from 'lucide-react';
+import { SIHJudgeHelpbookModal } from '../components/SIHJudgeHelpbookModal';
 
 export const LoginScreen: React.FC = () => {
   const {
@@ -35,6 +38,7 @@ export const LoginScreen: React.FC = () => {
   } = useApp();
 
   const [selectedPortal, setSelectedPortal] = useState<UserRole>('patient');
+  const [isHelpbookOpen, setIsHelpbookOpen] = useState(false);
 
   // Form states
   // 1. Patient
@@ -131,6 +135,42 @@ export const LoginScreen: React.FC = () => {
           <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto font-medium">
             Unified National Digital Health Suite. Choose your dedicated gateway to access patient vitals, clinical records, or trauma admissions.
           </p>
+        </div>
+
+        {/* 📘 SIH Judges & Evaluators Helpbook & Workflow Manual Banner */}
+        <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white p-4 sm:p-5 rounded-3xl shadow-lg border border-amber-300 relative overflow-hidden flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5 text-left">
+            <div className="w-12 h-12 rounded-2xl bg-white text-amber-700 flex items-center justify-center shrink-0 shadow-md">
+              <BookOpen className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="bg-black/30 text-amber-100 text-[10px] font-black uppercase px-2 py-0.5 rounded-full tracking-wider">
+                  Smart India Hackathon (SIH 2026)
+                </span>
+                <span className="bg-white/20 text-white text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full tracking-wider">
+                  Team Syntrix
+                </span>
+              </div>
+              <h2 className="text-base sm:text-lg font-black tracking-tight text-white mt-0.5">
+                Evaluator Helpbook & System Workflow Manual
+              </h2>
+              <p className="text-xs text-amber-100 font-medium">
+                Step-by-step section walkthrough, flow diagrams & 1-click test credentials for evaluators.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+            <button
+              type="button"
+              onClick={() => setIsHelpbookOpen(true)}
+              className="w-full sm:w-auto bg-white hover:bg-amber-50 text-amber-950 font-black px-5 py-2.5 rounded-2xl text-xs flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4 text-amber-600" />
+              <span>Open Helpbook & Flowcharts</span>
+            </button>
+          </div>
         </div>
 
         {/* 5 Portals Selector */}
@@ -784,6 +824,9 @@ export const LoginScreen: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* SIH Judge Helpbook & System Manual Modal */}
+      <SIHJudgeHelpbookModal isOpen={isHelpbookOpen} onClose={() => setIsHelpbookOpen(false)} />
     </div>
   );
 };
