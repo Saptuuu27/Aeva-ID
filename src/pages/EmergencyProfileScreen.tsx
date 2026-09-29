@@ -57,7 +57,17 @@ export const EmergencyProfileScreen: React.FC = () => {
 
   const handleClose = () => {
     stopSpeaking();
-    setActiveScreen('home');
+    if (role === 'emergency_staff') {
+      setActiveScreen('emergency_gateway');
+    } else if (role === 'doctor') {
+      setActiveScreen('doctor_dashboard');
+    } else if (role === 'hospital') {
+      setActiveScreen('hospital_portal');
+    } else if (role === 'caregiver') {
+      setActiveScreen('family');
+    } else {
+      setActiveScreen('home');
+    }
   };
 
   // Keyboard shortcut to close on Escape key

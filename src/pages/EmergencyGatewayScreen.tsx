@@ -54,7 +54,17 @@ export const EmergencyGatewayScreen: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState('');
 
   const handleClose = () => {
-    setActiveScreen('home');
+    if (role === 'doctor') {
+      setActiveScreen('doctor_dashboard');
+    } else if (role === 'hospital') {
+      setActiveScreen('hospital_portal');
+    } else if (role === 'caregiver') {
+      setActiveScreen('family');
+    } else if (role === 'patient') {
+      setActiveScreen('home');
+    } else {
+      setActiveScreen('scan_id');
+    }
   };
 
   // Keyboard shortcut to close on Escape key

@@ -106,6 +106,10 @@ export const ScanIdScreen: React.FC = () => {
       setActiveScreen('doctor_dashboard');
     } else if (role === 'caregiver') {
       setActiveScreen('family');
+    } else if (role === 'emergency_staff') {
+      setActiveScreen('emergency_gateway');
+    } else if (role === 'hospital') {
+      setActiveScreen('hospital_portal');
     } else {
       setActiveScreen('home');
     }
